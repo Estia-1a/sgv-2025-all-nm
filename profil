@@ -68,3 +68,36 @@
             </div>
         </div>
     </main>
+    <footer><p>&copy; 2025 Estia Housing Project.</p></footer>
+
+    <script>
+        const btn = document.getElementById('btnSave');
+        const card = document.getElementById('formCard');
+        const badge = document.getElementById('badge');
+        let locked = false;
+
+        if(btn) {
+            btn.addEventListener('click', () => {
+                if(!locked) {
+                    // Verrouiller (Mode Lecture)
+                    card.classList.add('readonly-mode');
+                    btn.textContent = "Modifier mon profil";
+                    btn.style.backgroundColor = "#ff8c00"; // Orange
+                    badge.textContent = "Dossier Validé ✔";
+                    badge.className = "status-badge status-validated";
+                    alert("Dossier enregistré et prêt !");
+                    locked = true;
+                } else {
+                    // Déverrouiller (Mode Édition)
+                    card.classList.remove('readonly-mode');
+                    btn.textContent = "Enregistrer le dossier";
+                    btn.style.backgroundColor = "#28a745"; // Vert
+                    badge.textContent = "Mode Édition ✎";
+                    badge.className = "status-badge status-editing";
+                    locked = false;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
