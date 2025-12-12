@@ -23,4 +23,51 @@
         <div id="containerFavoris" class="listings-grid"></div>
         <p id="msgVide" style="text-align: center; color: #777; display: none;">Aucune candidature envoyée.</p>
     </main>
+    <footer><p>&copy; 2025 Estia Housing Project.</p></footer>
+
+    <script>
+        // Afficher les favoris au chargement
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('containerFavoris');
+            const msgVide = document.getElementById('msgVide');
+            let favoris = JSON.parse(localStorage.getItem('mesFavorisImmo')) || [];
+
+            container.innerHTML = ""; // Vider
+
+            if (favoris.length === 0) {
+                msgVide.style.display = 'block';
+            } else {
+                msgVide.style.display = 'none';
+                favoris.forEach((fav, index) => {
+                    let html = `
+                        <div class="card">
+                            <img src="${fav.imgUrl}" alt="${fav.titre}">
+                            <div class="card-content">
+                                <h3>${fav.titre}</h3>
+                                <span class="location">📍 ${fav.lieu}</span>
+                                <p class="price">${fav.prix}</p>
+                                <div style="background:#d4edda; color:#155724; padding:5px; border-radius:5px; text-align:center; margin:10px 0; font-weight:bold;">
+                                    ✔ Dossier Transmis
+                                </div>
+                                <button class="delete-btn" onclick="supprimerFavori(${index})">Annuler ma candidature</button>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += html;
+                });
+            }
+        });
+
+        // Supprimer un favori
+        function supprimerFavori(index) {
+            if(confirm("Annuler cette candidature ?")) {
+                let favoris = JSON.parse(localStorage.getItem('mesFavorisImmo')) || [];
+                favoris.splice(index, 1);
+                localStorage.setItem('mesFavorisImmo', JSON.stringify(favoris));
+                location.reload(); // Recharger la page pour voir le changement
+            }
+        }
+    </script>
+</body>
+</html>
 
