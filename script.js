@@ -60,3 +60,12 @@ function afficherFavoris() {
         });
     }
 }
+// 3. FONCTION : SUPPRIMER UN FAVORI
+function supprimerFavori(index) {
+    if(confirm("Supprimer cette candidature ?")) {
+        let liste = JSON.parse(localStorage.getItem(KEY_CANDIDATURES)) || [];
+        liste.splice(index, 1); // Retirer l'élément
+        localStorage.setItem(KEY_CANDIDATURES, JSON.stringify(liste));
+        afficherFavoris(); // Recharger la zone
+    }
+}
