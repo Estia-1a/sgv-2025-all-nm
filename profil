@@ -1,16 +1,19 @@
-<form action="" method="get" class="form-example">
-  <div class="form-example">
-    <label for="name">Entrez votre nom&nbsp;: </label>
-    <input type="text" name="name" id="name" required />
-  </div>
-  <div class="form-example">
-    <label for="prenom">Entrez votre prenom;: </label>
-    <input type="prenom" name="email" id="email" required />
-  </div>
-  <div class="form-example">
-    <label for="nom">Entrez votre nom;: </label>
-    <input type="nom" name="email" id="email" required />
-  </div>
-<div class="form-example">
-  <label for="adresse">Entrez votre adresse,:</label>
-<input type="adresse" name="adresse" id="adresse
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Profil - Estia Housing</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">EstiaHousing</a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="logements.html">Offres</a></li>
+                <li><a href="favoris.html">Candidatures</a></li>
+                <li><a href="profil.html" class="active">Profil</a></li>
+            </ul>
+        </nav>
+    </header>
