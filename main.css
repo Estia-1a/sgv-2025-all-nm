@@ -72,3 +72,5 @@ nav a:hover, nav a.active { color: var(--secondary); }
     padding: 10px; border-radius: 8px; margin-top: 10px; cursor: pointer; font-weight: bold;
 }
 .delete-btn:hover { background: var(--danger); color: white; }
+/* FOOTER */
+footer { background: #222; color: #aaa; text-align: center; padding: 40px 20px; margin-top: 60px; }
