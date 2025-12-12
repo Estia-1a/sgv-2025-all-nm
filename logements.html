@@ -129,6 +129,30 @@
                     <button class="cta-button" onclick="ajouterFavori('Loft Biarritz', '750€', 'Biarritz', 'https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=500&q=60')">Candidater</button>
                 </div>
             </div>
+            </div>
+    </main>
+    <footer><p>&copy; 2025 Estia Housing Project.</p></footer>
+
+    <script>
+        function ajouterFavori(titre, prix, lieu, imgUrl) {
+            console.log("Clic détecté sur : " + titre);
+            let favoris = JSON.parse(localStorage.getItem('mesFavorisImmo')) || [];
+            
+            // Vérifier doublon
+            if (favoris.some(f => f.titre === titre)) {
+                alert("⚠️ Vous avez déjà candidaté à ce logement !");
+                return;
+            }
+
+            // Ajouter
+            favoris.push({ titre, prix, lieu, imgUrl });
+            localStorage.setItem('mesFavorisImmo', JSON.stringify(favoris));
+            
+            alert("✅ Candidature envoyée ! Vérifiez l'onglet 'Candidatures'.");
+        }
+    </script>
+</body>
+</html>
 
 
 
