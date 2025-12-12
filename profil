@@ -17,3 +17,54 @@
             </ul>
         </nav>
     </header>
+     <main class="container">
+        <div class="profile-header">
+            <div class="avatar">ET</div>
+            <div>
+                <h2>Mon Dossier Locataire</h2>
+                <div id="badge" class="status-badge status-editing">Mode Édition ✎</div>
+                <p>Complétez votre dossier pour candidater.</p>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px;">
+            
+            <div class="card card-content" style="height: fit-content;">
+                <h3>État du dossier</h3>
+                <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                    <li style="margin-bottom: 10px; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                        <span>Identité</span> <span style="color: var(--success);">✔ Complété</span>
+                    </li>
+                    <li style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+                        <span>Garant</span> <span style="color: var(--success);">✔ Complété</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card card-content" id="formCard">
+                <h3>📝 Mes Informations</h3>
+                <form onsubmit="return false;">
+                    <h4 style="color: #666;">Locataire</h4>
+                    <div class="form-row">
+                        <div class="form-group"><label class="form-label">Nom</label><input type="text" class="input-field" placeholder="Nom" value="Dupont"></div>
+                        <div class="form-group"><label class="form-label">Prénom</label><input type="text" class="input-field" placeholder="Prénom" value="Jean"></div>
+                    </div>
+                    <div class="form-group"><label class="form-label">Email ESTIA</label><input type="email" class="input-field" placeholder="@estia.fr"></div>
+
+                    <hr style="border:0; border-top:1px dashed #ccc; margin:20px 0;">
+
+                    <h4 style="color: #666;">Garant</h4>
+                    <div class="form-row">
+                        <div class="form-group"><label class="form-label">Nom Garant</label><input type="text" class="input-field" placeholder="Nom"></div>
+                        <div class="form-group"><label class="form-label">Prénom Garant</label><input type="text" class="input-field" placeholder="Prénom"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label class="form-label">Revenus (€)</label><input type="number" class="input-field" placeholder="Ex: 2500"></div>
+                        <div class="form-group"><label class="form-label">Email Garant</label><input type="email" class="input-field" placeholder="Email pour signature"></div>
+                    </div>
+
+                    <button id="btnSave" class="cta-button" style="background-color: var(--success); width: 100%; margin-top: 15px;">Enregistrer le dossier</button>
+                </form>
+            </div>
+        </div>
+    </main>
