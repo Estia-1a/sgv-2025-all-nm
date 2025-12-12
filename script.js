@@ -22,3 +22,41 @@ function ajouterAuxFavoris(titre, prix, lieu, image) {
         alert("✅ Candidature ajoutée dans l'onglet 'Favoris' !");
     }
 }
+// 2. FONCTION : AFFICHER LES FAVORIS (Sur la page favoris.html)
+function afficherFavoris() {
+    const container = document.getElementById('listeFavoris');
+    const messageVide = document.getElementById('messageVide');
+
+    // Si on n'est pas sur la page favoris, on arrête
+    if (!container) return;
+
+    // Récupérer les données
+    let liste = JSON.parse(localStorage.getItem(KEY_CANDIDATURES)) || [];
+
+    container.innerHTML = ""; // Vider
+
+    if (liste.length === 0) {
+        messageVide.style.display = 'block';
+    } else {
+        messageVide.style.display = 'none';
+
+        // Générer le HTML pour chaque favori
+        liste.forEach((item, index) => {
+            let card = `
+                <div class="card">
+                    <img src="${item.image}" alt="${item.titre}">
+                    <div class="card-content">
+                        <h3>${item.titre}</h3>
+                        <span class="location">📍 ${item.lieu}</span>
+                        <p class="price">${item.prix}</p>
+                        <div style="background:#e8f5e9; color:#155724; padding:5px; margin:10px 0; border-radius:5px; text-align:center; font-weight:bold;">
+                            ✔ Dossier Transmis
+                        </div>
+                        <button class="delete-btn" onclick="supprimerFavori(${index})">Retirer de la liste</button>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += card;
+        });
+    }
+}
