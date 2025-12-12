@@ -69,3 +69,38 @@ function supprimerFavori(index) {
         afficherFavoris(); // Recharger la zone
     }
 }
+// 4. FONCTION : GESTION DU PROFIL (L'ancien code qui marchait)
+function initProfil() {
+    const btn = document.getElementById('btnProfil');
+    const card = document.getElementById('cardDossier');
+    const badge = document.getElementById('badgeStatus');
+
+    if(!btn) return;
+
+    let verrouille = false;
+
+    btn.addEventListener('click', function() {
+        if(!verrouille) {
+            // Verrouiller
+            card.classList.add('readonly-mode');
+            btn.textContent = "Modifier mon profil";
+            btn.style.backgroundColor = "#ff8c00";
+            if(badge) { badge.textContent = "Dossier Validé ✔"; badge.className = "status-badge status-validated"; }
+            alert("Votre dossier est validé !");
+            verrouille = true;
+        } else {
+            // Déverrouiller
+            card.classList.remove('readonly-mode');
+            btn.textContent = "Enregistrer mon dossier";
+            btn.style.backgroundColor = "#28a745";
+            if(badge) { badge.textContent = "Mode Édition ✎"; badge.className = "status-badge status-editing"; }
+            verrouille = false;
+        }
+    });
+}
+
+// Lancement automatique au chargement
+document.addEventListener('DOMContentLoaded', function() {
+    afficherFavoris();
+    initProfil();
+});
