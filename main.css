@@ -56,3 +56,8 @@ nav a:hover, nav a.active { color: var(--secondary); }
     background: transparent; border: none; border-bottom: 1px solid #ccc;
     border-radius: 0; color: #000; font-weight: 500; pointer-events: none; padding-left: 0;
 }
+/* OFFRES */
+.listings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+.card img { width: 100%; height: 220px; object-fit: cover; }
+.price { color: var(--secondary); font-size: 1.4rem; font-weight: bold; }
+.location { color: #666; display: block; margin-bottom: 10px; }
